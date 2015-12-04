@@ -29,7 +29,11 @@ You'll need a fresh a Heroku app with the Heroku Postgres add-on enabled.
 
    $ heroku run 'nsot-server --config=settings.py createsuperuser'
 
-5. Fire up your web browser and use the API interface to login with your
+5. Generate a ``SECRET_KEY`` to make your install more secure::
+
+   $ heroku config:set SECRET_KEY=`openssl rand -base64 32`
+
+6. Fire up your web browser and use the API interface to login with your
    superuser::
 
    https://yourappname.herokuapp.com/api/api-auth/login/'
@@ -57,4 +61,4 @@ So you want to update NSoT to the latest version on Heroku? No problem:
 To Do
 =====
 
-+ Get rid of hard-coded ``SECRET_KEY``.
++ Nothing at this time.
