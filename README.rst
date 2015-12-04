@@ -4,8 +4,8 @@ heroku-nsot
 
 Deploy NSoT to Heroku with ease.
 
-Instructions
-============
+Deploying
+=========
 
 These instructions assume that you know your way around Heroku and already have
 the heroku-toolbelt installed.
@@ -36,8 +36,25 @@ You'll need a fresh a Heroku app with the Heroku Postgres add-on enabled.
 
 End.
 
+Upgrading
+=========
+
+So you want to update NSoT to the latest version on Heroku? No problem:
+
+1. Install the `heroku-repo <https://github.com/heroku/heroku-repo.git>`_ plugin::
+
+   $ heroku plugins:install https://github.com/heroku/heroku-repo.git
+
+2. Reset your repo state and do a fresh push::
+
+   $ heroku repo:reset --app=yourappname
+   $ git push heroku master
+
+3. Restart your dyno::
+   
+   $ heroku ps:scale web=1
+
 To Do
 =====
 
 + Get rid of hard-coded ``SECRET_KEY``.
-+ Account for upgrading NSoT.
